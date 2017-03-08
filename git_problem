@@ -25,6 +25,65 @@
 
     <main>
         <h2>Git Problems</h2>
+        <h3>First I wanted to define a git merge.</h3>
+        <p>One of the first thinsg that popped up was <a href="https://www.quora.com/How-does-Git-merge-work">Quora</a>. This site stated "Merge commits have two or more parents. Every git commit is composed of a "tree", one or more "parents", author name, email, date and committer name, email, date. The only difference between a merge commit and normal commit is the number of parents.</br>
+        While <a href="https://git-scm.com/docs/git-merge">"This command is used by git pull to incorporate changes from another repository and can be used by hand to merge changes from one branch into another." In a <a href="https://github.com/LynnaS/programming_resources/edit/master/git_problem">different place</a> they stated "Join two or more development histories together".</br>
+        And <a href="https://www.atlassian.com/git/tutorials/git-merge">atlassian</a> describes it as "Merging is Git's way of putting a forked history back together again. The git merge command lets you take the independent lines of development created by git branch and integrate them into a single branch."</p>
+        
+        <h3>What I found out about merging.</h3>
+        <p>From <a href="https://www.atlassian.com/git/tutorials/git-merge">atlassin</a> I found out that there are two different types of merges: Fast-forward and 3-way.</p>
+        <p>Fast-forward merges are for "when there is a linear path from the current branch tip to the target branch." This means that the master has not changed since the new branch was made. It is not really a merge but nore like an integration of the new branch into the master. The site also adds that it is better for an isolated approach and not for longer running stuff that is more complicated.</br>
+        They also said that if the change is really small that you are better off rebasing the master and then doing a fast-forward merge. You use <git rebase master> to take all the changes that were committed on the master and to replay them on the branch. It goes to the ancester of the two branches, gets the changes, temporarily saves, then applies each change in turn. Then you can do a simple fast-forward merge.They say that this makes for a cleaner history as all the changes just line up in a linear history.</br>
+        This is the format they gave.</br>
+            # Start a new feature</br>
+            git checkout -b new-feature master</br>
+            # Edit some files</br>
+            git add <file></br>
+            git commit -m "Start a feature"</br>
+            # Edit some files</br>
+            git add <file></br>
+            git commit -m "Finish a feature"</br>
+            # Merge in the new-feature branch</br>
+            git checkout master</br>
+            git merge new-feature</br>
+            git branch -d new-feature</p>
+            
+          <p>3-way merges are for committing the 2 branch tips and their common ancestor.The two branches have both made changes. This is used for large features or for when multiple people are working simultaniously. /br>
+          This is the format they gave.</br>
+            # Start a new feature</br>
+            git checkout -b new-feature master</br>
+            # Edit some files</br>
+            git add <file></br>
+            git commit -m "Start a feature"</br>
+            # Edit some files</br>
+            git add <file></br>
+            git commit -m "Finish a feature"</br>
+            # Develop the master branch</br>
+            git checkout master</br>
+            # Edit some files</br>
+            git add <file></br>
+            git commit -m "Make some super-stable changes to master"</br>
+            # Merge in the new-feature branch</br>
+            git merge new-feature</br>
+            git branch -d new-feature</p>
+            
+         <p>Resolving conflicts in a 3-way merge is done by git stopping the merge and you fixing it manually. If you run a <git status> it will tell you which files have both been changed. You would see something like this:</br>
+            # On branch master</br>
+            # Unmerged paths:</br>
+            # (use "git add/rm ..." as appropriate to mark resolution)</br>
+            #</br>
+            # both modified: hello.py</br>
+            #</br>
+            Then you fix the problem and <git add theconflictedfileorfiles>. This tells git that the problem is resolved. Then do a regular commit.</p>
+        
+        <p>https://www.quora.com/How-does-Git-merge-work</p>
+        <p></p>
+        
+        
+        <p></p>
+        <p></p>
+        
+        
     </main>
 
     <footer>
