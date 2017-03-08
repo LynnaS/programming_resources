@@ -1,14 +1,16 @@
-header, footer {
-  background-color: #262626;
-  
-}
-header, h1, h3 {
-  color: white; 
-}
-footer, p {
-  color: white;
-}
-
 body {
   background-color: #e6e6e6 ;
+}
+header, footer {
+  background-color: #262626; 
+}
+header, h1, h3 {
+  color:#ffffff; 
+}
+footer, p {
+  color:  #ffffff;
+}
+.navbar {
+  background-color: 262626;
+  border-top: 5px solid #ffffff;
 }
