@@ -25,6 +25,19 @@
 
     <main>
         <h2>Git Problems</h2>
+        <h3>First I wanted to define a git merge.</h3>
+        <p>One of the first thinsg that popped up was <a href="https://www.quora.com/How-does-Git-merge-work">Quora</a>. This site stated "Merge commits have two or more parents. Every git commit is composed of a "tree", one or more "parents", author name, email, date and committer name, email, date. The only difference between a merge commit and normal commit is the number of parents.</br>
+        While <a href="https://git-scm.com/docs/git-merge">"This command is used by git pull to incorporate changes from another repository and can be used by hand to merge changes from one branch into another."</br>
+        And <a href="https://www.atlassian.com/git/tutorials/git-merge">atlassian</a> describes it as "Merging is Git's way of putting a forked history back together again. The git merge command lets you take the independent lines of development created by git branch and integrate them into a single branch."</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        
+        
     </main>
 
     <footer>
