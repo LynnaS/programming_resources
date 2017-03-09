@@ -74,15 +74,70 @@
             #</br>
             # both modified: hello.py</br>
             #</br>
-            Then you fix the problem and <git add theconflictedfileorfiles>. This tells git that the problem is resolved. Then do a regular commit.</p>
+            Then you fix the problem and <git add theconflictedfileorfiles>. This tells git that the problem is resolved. Then do a regular commit.</p
         
-        <p>https://www.quora.com/How-does-Git-merge-work</p>
-        <p></p>
+        <h2>Git-scm</h2>
+        <p><a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">Git-scrm</a> also had lots of information.However, I didn't find this site particularly user friendly for a beginner.</p>
+
+        <h2>Stackoverflow</h2>
+        <p>A <a href="http://stackoverflow.com/questions/5601931/best-and-safest-way-to-merge-a-git-branch-into-master">Stackoverflow</a> answers all say that their answer is the best and safest way to merge. </br>
+        The question is....</br>
+        You have a master.</br>
+        There are several branches. Yours is called "test".</br>
+        You work for several days on test. You keep up to date by doing <git pull origin master> while you are in your branch test. </br>
+        Is this correct?</p>
+
+        <p>One answer suggested the code below but also talked about "--rebase".</br>
+            git checkout master</br>
+            git pull origin master</br>
+            git merge test</br>
+            git push origin master</p>
+
+         <p>The next answer says not to do this because we can't see if there are any conflicts and that it would lump all the test commits together and you could not see all the different changes you have done. If you think that there might be conflicts you should do this instead.</br>
+                git checkout test</br>
+                git pull </br>
+                git checkout master</br>
+                git pull</br>
+                git merge --no-ff --no-commit test       (the noff avoids a fastforward merg)</br>
+                Any conflicts? check out with <git status></br>
+            Then we commit and push</br>
+                git commit -m 'merge test branch'</br>
+                git push</br>
+            But this way we loose history and makes it harder for others to follow. Best thing to do is to rebase and not merge.</br>
+            For a simple thing do below, for advanced go to <a href="http://git-scm.com/book/en/v2/Git-Branching-Rebasing">git-scrm</a></br>
+                git checkout master</br>
+                git pull</br>
+                git checkout test</br>
+                git pull</br>
+                git rebase -i master</br>
+                git checkout master</br>
+                git merge test</br>
+            It says to never use with the master. In other words NEVER DO THIS:</br>
+                git checkout master</br>
+                git rebase -i test</p>
+
+            <h2>Atlassian again</h2>
+            <p>Then there was a link to <a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing">Atlassian</a></br>
+            The simplest thing is to merge the master into your branch called "feature" like this:</br>
+                git checkout feature</br>
+                git merge master</br>
+            Or, you can condense this to a one-liner:</br>
+                git merge master feature</br>
+            However, you can mess up the history of the master if this is a busy site.
+            </p>
+            <p>An alternative is to Rebase.</br>
+                git checkout feature</br>
+                git rebase master</br>
+            This does not use a merge commit but "re-writes the project history by creating brand new commits for each commit in the original branch.</br>
+            Now you have a perfectly linear project history!</br>
+            There is even interactive rebasing that cleans up project history before you merge your work.</p>
+
+        <p>GOLDEN RULE OF REBASING is to never use it on public branches. Ask yourself if anyone else is using this branch. Yes? Don't rebase!</p>
         
+        <h2>My Team<h/2>
+        <p>My team has been using the fast-forward method. We pull down our master, add our changes, and push it back up to github.</p>
         
-        <p></p>
-        <p></p>
-        
+    </main>
         
     </main>
 
